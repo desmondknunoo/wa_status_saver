@@ -31,7 +31,10 @@ class StatusProvider extends ChangeNotifier {
   int get businessCount => _businessStatuses.length;
   int get savedCount => _savedStatuses.length;
 
-  /// Initialize and check permissions
+  /// Initializes the provider by checking storage permissions.
+  ///
+  /// If permission is already granted, automatically fetches all statuses.
+  /// Should be called once when the app starts.
   Future<void> initialize() async {
     _hasPermission = await _permissionService.checkPermission();
     if (_hasPermission) {
@@ -50,7 +53,14 @@ class StatusProvider extends ChangeNotifier {
     return _hasPermission;
   }
 
-  /// Refresh all statuses
+  /// Refreshes all status lists from WhatsApp directories.
+  ///
+  /// Concurrently fetches:
+  /// - WhatsApp statuses
+  /// - WhatsApp Business statuses
+  /// - Previously saved statuses
+  ///
+  /// Updates loading state and notifies listeners on completion.
   Future<void> refreshAllStatuses() async {
     _isLoading = true;
     _errorMessage = null;

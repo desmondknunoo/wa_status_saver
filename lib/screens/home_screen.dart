@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../models/status_model.dart';
 import '../providers/status_provider.dart';
 import '../widgets/status_grid.dart';
 import '../widgets/permission_view.dart';

@@ -67,11 +67,7 @@ class StatusSaverApp extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      cardTheme: CardTheme(
-        color: const Color(0xFF1E1E1E),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      ),
+      cardTheme: const CardThemeData(color: Color(0xFF1E1E1E), elevation: 0),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Color(0xFF1A1A1A),
         selectedItemColor: Color(0xFF25D366),

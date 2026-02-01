@@ -6,7 +6,10 @@ import '../models/status_model.dart';
 class FileService {
   static const String saveDirectoryName = 'StatusSaver';
 
-  /// Get the app's save directory
+  /// Returns the app's dedicated save directory in Pictures folder.
+  ///
+  /// Creates the directory if it doesn't exist. Path: Pictures/StatusSaver/
+  /// Throws exception if external storage is not available.
   Future<Directory> getSaveDirectory() async {
     final directory = await getExternalStorageDirectory();
     if (directory == null) {
@@ -25,7 +28,14 @@ class FileService {
     return saveDir;
   }
 
-  /// Save a status file to the device gallery
+  /// Saves a status file to the device's gallery using ImageGallerySaver.
+  ///
+  /// Process:
+  /// 1. Verifies source file exists
+  /// 2. Generates timestamp-based unique filename
+  /// 3. Saves to gallery with media scanner notification
+  ///
+  /// Returns true on success, false on failure.
   Future<bool> saveStatus(StatusModel status) async {
     try {
       final file = File(status.path);

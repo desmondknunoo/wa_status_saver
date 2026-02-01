@@ -22,7 +22,11 @@ class WhatsAppService {
     'mp4', 'mkv', 'avi', 'webm', '3gp', // Videos
   ];
 
-  /// Get the active status directory for the specified WhatsApp type
+  /// Returns the first valid status directory for the specified WhatsApp type.
+  ///
+  /// Iterates through known paths for WhatsApp or WhatsApp Business and returns
+  /// the first directory that exists on the device. Returns null if no valid
+  /// directory is found (WhatsApp not installed or status folder doesn't exist).
   Future<Directory?> getStatusDirectory(WhatsAppType type) async {
     final paths = type == WhatsAppType.whatsapp
         ? whatsappPaths
@@ -43,7 +47,16 @@ class WhatsAppService {
     return directory != null;
   }
 
-  /// Fetch all statuses from the specified WhatsApp type
+  /// Fetches all status files from the specified WhatsApp type directory.
+  ///
+  /// Algorithm:
+  /// 1. Locates the status directory for the given WhatsApp type
+  /// 2. Filters files by supported extensions (images/videos)
+  /// 3. Excludes hidden files (.nomedia, etc.)
+  /// 4. Creates StatusModel objects with file metadata
+  /// 5. Sorts results by modification date (newest first)
+  ///
+  /// Returns an empty list if directory doesn't exist or access is denied.
   Future<List<StatusModel>> fetchStatuses(WhatsAppType type) async {
     final List<StatusModel> statuses = [];
 
