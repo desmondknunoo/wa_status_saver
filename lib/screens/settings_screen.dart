@@ -359,14 +359,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _shareApp() {
     Share.share(
       'Check out Status Saver - the best app to save WhatsApp statuses! '
-      'Download now: https://play.google.com/store/apps/details?id=com.example.wa_status_saver',
+      'Download now: https://play.google.com/store/apps/details?id=com.achendo.wass',
       subject: 'Status Saver App',
     );
   }
 
   Future<void> _rateApp() async {
     const url =
-        'https://play.google.com/store/apps/details?id=com.example.wa_status_saver';
+        'https://play.google.com/store/apps/details?id=com.achendo.wass';
     await _launchUrl(url);
   }
 }
