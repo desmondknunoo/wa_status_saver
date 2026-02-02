@@ -21,7 +21,11 @@ class SavedScreen extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                   title: const Text(
                     'Saved Statuses',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
                   ),
                   background: Container(
                     decoration: const BoxDecoration(
@@ -117,7 +121,9 @@ class SavedScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black,
           ),
         ),
         Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[400])),

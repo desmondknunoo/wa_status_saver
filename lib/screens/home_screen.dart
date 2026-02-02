@@ -88,7 +88,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       flexibleSpace: FlexibleSpaceBar(
         title: const Text(
           'Status Saver',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.white,
+          ),
         ),
         background: Container(
           decoration: BoxDecoration(
@@ -143,7 +147,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               color: const Color(0xFF25D366),
             ),
             indicatorSize: TabBarIndicatorSize.tab,
-            labelColor: Colors.white,
+            labelColor: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black,
             unselectedLabelColor: Colors.grey,
             dividerColor: Colors.transparent,
             padding: const EdgeInsets.all(4),
