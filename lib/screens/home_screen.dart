@@ -6,6 +6,7 @@ import '../widgets/status_grid.dart';
 import '../widgets/permission_view.dart';
 import '../widgets/empty_state.dart';
 import 'saved_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -114,6 +115,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           onPressed: provider.isLoading
               ? null
               : () => provider.refreshAllStatuses(),
+        ),
+        IconButton(
+          icon: const Icon(Icons.settings_rounded),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SettingsScreen()),
+          ),
         ),
       ],
     );
