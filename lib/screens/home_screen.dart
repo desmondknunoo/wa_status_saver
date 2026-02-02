@@ -117,10 +117,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               : () => provider.refreshAllStatuses(),
         ),
         IconButton(
-          icon: const Icon(Icons.settings_rounded),
+          icon: const Icon(Icons.settings_outlined),
           onPressed: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const SettingsScreen()),
+            MaterialPageRoute(builder: (_) => const SettingsScreen()),
           ),
         ),
       ],

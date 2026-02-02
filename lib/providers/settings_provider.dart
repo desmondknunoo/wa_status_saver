@@ -3,55 +3,50 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsProvider extends ChangeNotifier {
   static const String _themeModeKey = 'theme_mode';
-  static const String _notificationsKey = 'notifications_active';
-  static const String _autoSaveKey = 'auto_save_active';
+  static const String _autoSaveKey = 'auto_save';
+  static const String _notificationsKey = 'notifications';
 
   ThemeMode _themeMode = ThemeMode.system;
-  bool _notificationsActive = true;
-  bool _autoSaveActive = false;
-  late SharedPreferences _prefs;
-  bool _isInitialized = false;
+  bool _autoSave = false;
+  bool _notifications = true;
 
   ThemeMode get themeMode => _themeMode;
-  bool get notificationsActive => _notificationsActive;
-  bool get autoSaveActive => _autoSaveActive;
-  bool get isInitialized => _isInitialized;
+  bool get autoSave => _autoSave;
+  bool get notifications => _notifications;
 
-  SettingsProvider() {
-    _loadSettings();
-  }
+  Future<void> loadSettings() async {
+    final prefs = await SharedPreferences.getInstance();
 
-  Future<void> _loadSettings() async {
-    _prefs = await SharedPreferences.getInstance();
+    final themeModeIndex = prefs.getInt(_themeModeKey) ?? 0;
+    _themeMode = ThemeMode.values[themeModeIndex];
 
-    // Load theme mode
-    final themeIndex =
-        _prefs.getInt(_themeModeKey) ?? 0; // 0: system, 1: light, 2: dark
-    _themeMode = ThemeMode.values[themeIndex];
+    _autoSave = prefs.getBool(_autoSaveKey) ?? false;
+    _notifications = prefs.getBool(_notificationsKey) ?? true;
 
-    // Load other settings
-    _notificationsActive = _prefs.getBool(_notificationsKey) ?? true;
-    _autoSaveActive = _prefs.getBool(_autoSaveKey) ?? false;
-
-    _isInitialized = true;
     notifyListeners();
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
     _themeMode = mode;
-    await _prefs.setInt(_themeModeKey, mode.index);
     notifyListeners();
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_themeModeKey, mode.index);
   }
 
-  Future<void> setNotificationsActive(bool value) async {
-    _notificationsActive = value;
-    await _prefs.setBool(_notificationsKey, value);
+  Future<void> setAutoSave(bool value) async {
+    _autoSave = value;
     notifyListeners();
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_autoSaveKey, value);
   }
 
-  Future<void> setAutoSaveActive(bool value) async {
-    _autoSaveActive = value;
-    await _prefs.setBool(_autoSaveKey, value);
+  Future<void> setNotifications(bool value) async {
+    _notifications = value;
     notifyListeners();
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_notificationsKey, value);
   }
 }
