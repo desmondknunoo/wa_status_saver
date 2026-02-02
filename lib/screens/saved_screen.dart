@@ -69,7 +69,7 @@ class SavedScreen extends StatelessWidget {
       color: const Color(0xFF25D366),
       child: Column(
         children: [
-          _buildStatsCard(provider),
+          _buildStatsCard(context, provider),
           Expanded(
             child: StatusGrid(
               statuses: provider.savedStatuses,
@@ -81,7 +81,7 @@ class SavedScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatsCard(StatusProvider provider) {
+  Widget _buildStatsCard(BuildContext context, StatusProvider provider) {
     final imageCount = provider.savedStatuses.where((s) => s.isImage).length;
     final videoCount = provider.savedStatuses.where((s) => s.isVideo).length;
 
@@ -101,24 +101,34 @@ class SavedScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildStatItem(Icons.image_rounded, 'Images', imageCount),
+          _buildStatItem(context, Icons.image_rounded, 'Images', imageCount),
           Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.3)),
-          _buildStatItem(Icons.videocam_rounded, 'Videos', videoCount),
+          _buildStatItem(context, Icons.videocam_rounded, 'Videos', videoCount),
           Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.3)),
-          _buildStatItem(Icons.folder_rounded, 'Total', provider.savedCount),
+          _buildStatItem(
+            context,
+            Icons.folder_rounded,
+            'Total',
+            provider.savedCount,
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildStatItem(IconData icon, String label, int count) {
+  Widget _buildStatItem(
+    BuildContext context,
+    IconData icon,
+    String label,
+    int count,
+  ) {
     return Column(
       children: [
         Icon(icon, color: const Color(0xFF25D366), size: 24),
         const SizedBox(height: 4),
         Text(
           count.toString(),
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Theme.of(context).brightness == Brightness.dark
@@ -126,7 +136,15 @@ class SavedScreen extends StatelessWidget {
                 : Colors.black,
           ),
         ),
-        Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[400])),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.grey[400]
+                : Colors.grey[700],
+          ),
+        ),
       ],
     );
   }
