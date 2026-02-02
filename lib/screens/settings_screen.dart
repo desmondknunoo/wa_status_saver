@@ -105,15 +105,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTap: null,
               ),
 
-              const Divider(height: 1),
+              // const Divider(height: 1),
 
-              // Privacy Policy
-              _buildSettingsTile(
-                icon: Icons.privacy_tip_outlined,
-                title: 'Privacy policy',
-                subtitle: 'Our Terms and conditions',
-                onTap: () => _launchUrl('https://example.com/privacy'),
-              ),
+              // // Privacy Policy
+              // _buildSettingsTile(
+              //   icon: Icons.privacy_tip_outlined,
+              //   title: 'Privacy policy',
+              //   subtitle: 'Our Terms and conditions',
+              //   onTap: () => _launchUrl('https://achendo.com/privacy'),
+              // ),
 
               const Divider(height: 1),
 
