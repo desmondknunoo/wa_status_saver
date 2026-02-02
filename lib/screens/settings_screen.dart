@@ -42,13 +42,15 @@ class SettingsScreen extends StatelessWidget {
               _buildListTile(
                 context,
                 title: 'Save Statuses in Folder',
-                subtitle: '/storage/emulated/0/Download/WAStatusSaver',
+                subtitle: '/Internal Storage/Pictures/StatusSaver',
                 icon: Icons.folder_rounded,
                 onTap: () {
-                  // This is usually informative, but could open a picker if needed
+                  // This is informative as per FileService.getSaveDirectory() logic
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text('Default save location shown'),
+                      content: Text(
+                        'Statuses are saved in Pictures/StatusSaver',
+                      ),
                     ),
                   );
                 },
@@ -224,8 +226,14 @@ class SettingsScreen extends StatelessWidget {
 
   Future<void> _launchURL(String url) async {
     final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch $url';
+      }
+    } catch (e) {
+      debugPrint('Error launching URL: $e');
     }
   }
 
