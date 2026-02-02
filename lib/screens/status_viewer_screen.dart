@@ -413,7 +413,7 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
 
   Future<void> _shareStatus(StatusModel status) async {
     try {
-      await SharePlus.shareXFiles([
+      await Share.shareXFiles([
         XFile(status.path),
       ], text: 'Shared via Status Saver');
     } catch (e) {
