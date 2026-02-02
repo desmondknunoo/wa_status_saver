@@ -62,3 +62,11 @@ The APK will be located at `build/app/outputs/flutter-apk/app-release.apk`.
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## 👨‍💻 Developed By
+
+**Developed by [achendo.com](https://achendo.com)**
+
+Achendo Agency, we are a Creative Tech Agency with expertise in social media management, digital marketing, branding, and software development.

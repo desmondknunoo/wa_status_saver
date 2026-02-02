@@ -312,6 +312,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 'Simply view a status on WhatsApp, and it will appear here for you to save.',
                 style: TextStyle(fontSize: 14, height: 1.5),
               ),
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 16),
+              const Text(
+                'Developed by achendo.com',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Achendo Agency, we are a Creative Tech Agency with expertise in social media management, digital marketing, branding, and software development.',
+                style: TextStyle(fontSize: 12, height: 1.4),
+              ),
             ],
           ),
           actions: [
