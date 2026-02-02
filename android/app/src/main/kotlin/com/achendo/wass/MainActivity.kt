@@ -1,4 +1,4 @@
-package com.example.wa_status_saver
+package com.achendo.wass
 
 import io.flutter.embedding.android.FlutterActivity
 

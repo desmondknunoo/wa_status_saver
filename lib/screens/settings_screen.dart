@@ -315,9 +315,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(height: 16),
               const Divider(),
               const SizedBox(height: 16),
-              const Text(
-                'Developed by achendo.com',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              GestureDetector(
+                onTap: () => _launchUrl('https://achendo.com'),
+                child: const Text(
+                  'Developed by achendo.com',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Color(0xFF25D366),
+                    decoration: TextDecoration.underline,
+                    decorationColor: Color(0xFF25D366),
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               const Text(
