@@ -1,4 +1,4 @@
-# WhatsApp Status Saver
+# WhatsApp Status Saver (Android Only)
 
 A professional, production-ready Flutter application to view and save WhatsApp statuses (Images and Videos) from both WhatsApp and WhatsApp Business.
 

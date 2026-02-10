@@ -129,20 +129,42 @@
         }
 
         .feature {
-            text-align: center;
+            text-align: left;
             padding: 30px;
-            border-radius: 12px;
-            background: #f8f9fa;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            color: #128C7E;
         }
 
         .feature h3 {
-            margin-bottom: 10px;
-            color: #128C7E;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-size: 1.25rem;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .download-section {
@@ -221,29 +243,77 @@
         }
 
         footer {
-            background: #333;
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 80px 20px 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
 
-        footer a {
-            color: #25D366;
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: #aaa;
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .github-link {
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        .github-link a {
+        .footer-col a:hover {
             color: #25D366;
-            text-decoration: none;
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.2s;
+        }
+
+        .social-link:hover {
+            background: #25D366;
         }
     </style>
 </head>
@@ -252,7 +322,7 @@
     <section class="hero">
         <h1>WhatsApp Status Saver</h1>
         <p>View and save WhatsApp statuses (Images & Videos) from both WhatsApp and WhatsApp Business. Simple, fast, and
-            reliable.</p>
+            reliable. <strong>(Android Only)</strong></p>
         <div class="cta-buttons">
             <a href="#download" class="btn btn-primary">Download Now</a>
             <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank" class="btn btn-secondary">View on
@@ -300,7 +370,7 @@
 
     <section class="download-section" id="download">
         <h2>Download WhatsApp Status Saver</h2>
-        <p>Get the latest version for Android</p>
+        <p>Get the latest version for Android (Exclusive to Android devices)</p>
         <div class="download-buttons">
             <a href="https://github.com/desmondknunoo/wa_status_saver/releases" target="_blank" class="store-btn">
                 <span class="icon"><i data-lucide="github"></i></span>
@@ -310,7 +380,12 @@
                 </span>
             </a>
             <a href="#" class="store-btn disabled" title="Coming Soon">
-                <span class="icon"><i data-lucide="play"></i></span>
+                <span class="icon">
+                    <svg viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
+                        <path
+                            d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-36.3zM325.3 277.7l-60.1-60.1L104.6 499l280.8-161.2-60.1-60.1z" />
+                    </svg>
+                </span>
                 <span class="text">
                     <small>Get it on</small><br>
                     Play Store <span class="coming-soon-badge">Soon</span>
@@ -320,17 +395,53 @@
     </section>
 
     <footer>
-        <p><strong>WhatsApp Status Saver</strong> is an open-source project.</p>
-        <p>Built with ❤️ by <a href="https://achendo.com" target="_blank">Achendo Agency</a></p>
-        <div class="github-link">
-            <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank">View Source Code</a> ·
-            <a href="https://github.com/desmondknunoo/wa_status_saver/issues" target="_blank">Report Issue</a> ·
-            <a href="https://github.com/desmondknunoo/wa_status_saver/blob/main/CONTRIBUTING.md"
-                target="_blank">Contribute</a>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Status Saver</h4>
+                <p>The ultimate tool to save and share your favorite WhatsApp statuses. Faster, simpler, and free
+                    forever.</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://github.com/desmondknunoo/wa_status_saver" class="social-link"><i
+                            data-lucide="github" size="18"></i></a>
+                    <a href="https://achendo.com" class="social-link"><i data-lucide="globe" size="18"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download APK</a></li>
+                    <li><a href="https://github.com/desmondknunoo/wa_status_saver/releases">Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Agency</h4>
+                <ul>
+                    <li><a href="https://achendo.com">About Achendo</a></li>
+                    <li><a href="https://achendo.com/contact">Contact Us</a></li>
+                    <li><a href="https://achendo.com/services">Our Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://github.com/desmondknunoo/wa_status_saver/issues">Report Issue</a></li>
+                    <li><a
+                            href="https://github.com/desmondknunoo/wa_status_saver/blob/main/CONTRIBUTING.md">Contribute</a>
+                    </li>
+                    <li><a href="https://github.com/desmondknunoo/wa_status_saver">Star on GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> WhatsApp Status Saver (Android). All rights reserved.</p>
+            <p>Built with ❤️ by <a href="https://achendo.com" target="_blank"
+                    style="color: #25D366; text-decoration: none;">Achendo Agency</a></p>
         </div>
     </footer>
     <script>
         lucide.createIcons();
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 
