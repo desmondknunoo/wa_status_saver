@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import '../models/status_model.dart';
 
 enum WhatsAppType { whatsapp, whatsappBusiness }
@@ -100,7 +99,7 @@ class WhatsAppService {
       // Sort by date modified (newest first)
       statuses.sort((a, b) => b.dateModified.compareTo(a.dateModified));
     } catch (e) {
-      debugPrint('Error fetching statuses: $e');
+      print('Error fetching statuses: $e');
     }
 
     return statuses;

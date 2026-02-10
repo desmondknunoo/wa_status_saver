@@ -1,0 +1,30 @@
+{
+  "name": "wa_status_saver",
+  "version": "1.0.0",
+  "description": "A professional, production-ready Flutter application to view and save WhatsApp statuses (Images and Videos) from both WhatsApp and WhatsApp Business.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desmondknunoo/wa_status_saver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/desmondknunoo/wa_status_saver/issues"
+  },
+  "homepage": "https://github.com/desmondknunoo/wa_status_saver#readme"
+}

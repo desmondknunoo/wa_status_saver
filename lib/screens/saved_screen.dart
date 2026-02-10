@@ -91,30 +91,20 @@ class SavedScreen extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF25D366).withValues(alpha: 0.2),
-            const Color(0xFF128C7E).withValues(alpha: 0.1),
+            const Color(0xFF25D366).withOpacity(0.2),
+            const Color(0xFF128C7E).withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: const Color(0xFF25D366).withValues(alpha: 0.3),
-        ),
+        border: Border.all(color: const Color(0xFF25D366).withOpacity(0.3)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _buildStatItem(context, Icons.image_rounded, 'Images', imageCount),
-          Container(
-            height: 40,
-            width: 1,
-            color: Colors.grey.withValues(alpha: 0.3),
-          ),
+          Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.3)),
           _buildStatItem(context, Icons.videocam_rounded, 'Videos', videoCount),
-          Container(
-            height: 40,
-            width: 1,
-            color: Colors.grey.withValues(alpha: 0.3),
-          ),
+          Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.3)),
           _buildStatItem(
             context,
             Icons.folder_rounded,

@@ -96,9 +96,9 @@ class StatusSaverApp extends StatelessWidget {
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return whatsappGreen.withValues(alpha: 0.5);
+            return whatsappGreen.withOpacity(0.5);
           }
-          return Colors.grey.withValues(alpha: 0.3);
+          return Colors.grey.withOpacity(0.3);
         }),
       ),
       listTileTheme: const ListTileThemeData(iconColor: Color(0xFF128C7E)),
@@ -156,9 +156,9 @@ class StatusSaverApp extends StatelessWidget {
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return whatsappGreen.withValues(alpha: 0.5);
+            return whatsappGreen.withOpacity(0.5);
           }
-          return Colors.grey.withValues(alpha: 0.3);
+          return Colors.grey.withOpacity(0.3);
         }),
       ),
       listTileTheme: const ListTileThemeData(iconColor: whatsappGreen),
