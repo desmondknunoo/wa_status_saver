@@ -31,13 +31,13 @@ class PermissionView extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        const Color(0xFF25D366).withOpacity(0.2),
-                        const Color(0xFF128C7E).withOpacity(0.3),
+                        const Color(0xFF25D366).withValues(alpha: 0.2),
+                        const Color(0xFF128C7E).withValues(alpha: 0.3),
                       ],
                     ),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: const Color(0xFF25D366).withOpacity(0.5),
+                      color: const Color(0xFF25D366).withValues(alpha: 0.5),
                       width: 2,
                     ),
                   ),
@@ -109,9 +109,11 @@ class PermissionView extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.05),
+                    color: Colors.white.withValues(alpha: 0.05),
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.white.withOpacity(0.1)),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.1),
+                    ),
                   ),
                   child: Row(
                     children: [

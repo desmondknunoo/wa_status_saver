@@ -73,7 +73,7 @@ class StatusGridItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
+              color: Colors.black.withValues(alpha: 0.3),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -111,8 +111,8 @@ class StatusGridItem extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color(0xFF25D366).withOpacity(0.3),
-              const Color(0xFF128C7E).withOpacity(0.5),
+              const Color(0xFF25D366).withValues(alpha: 0.3),
+              const Color(0xFF128C7E).withValues(alpha: 0.5),
             ],
           ),
         ),
@@ -143,7 +143,7 @@ class StatusGridItem extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
+            colors: [Colors.transparent, Colors.black.withValues(alpha: 0.8)],
           ),
         ),
       ),

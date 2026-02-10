@@ -33,8 +33,8 @@ class EmptyState extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    const Color(0xFF25D366).withOpacity(0.1),
-                    const Color(0xFF128C7E).withOpacity(0.2),
+                    const Color(0xFF25D366).withValues(alpha: 0.1),
+                    const Color(0xFF128C7E).withValues(alpha: 0.2),
                   ],
                 ),
                 shape: BoxShape.circle,

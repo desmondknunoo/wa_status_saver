@@ -68,7 +68,7 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
       _videoController!.addListener(_videoListener);
       setState(() {});
     } catch (e) {
-      print('Error initializing video: $e');
+      debugPrint('Error initializing video: $e');
     }
   }
 
@@ -254,7 +254,7 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+          colors: [Colors.black.withValues(alpha: 0.7), Colors.transparent],
         ),
       ),
       child: Row(
@@ -321,7 +321,7 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
         gradient: LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+          colors: [Colors.black.withValues(alpha: 0.7), Colors.transparent],
         ),
       ),
       child: Row(
@@ -361,9 +361,9 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.2),
+          color: color.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: color.withOpacity(0.5)),
+          border: Border.all(color: color.withValues(alpha: 0.5)),
         ),
         child: Row(
           children: [
@@ -413,6 +413,7 @@ class _StatusViewerScreenState extends State<StatusViewerScreen> {
 
   Future<void> _shareStatus(StatusModel status) async {
     try {
+      // ignore: deprecated_member_use
       await Share.shareXFiles([
         XFile(status.path),
       ], text: 'Shared via Status Saver');

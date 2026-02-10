@@ -114,7 +114,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               //   subtitle: 'Our Terms and conditions',
               //   onTap: () => _launchUrl('https://achendo.com/privacy'),
               // ),
-
               const Divider(height: 1),
 
               // Share with others
@@ -219,7 +218,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               RadioListTile<ThemeMode>(
                 title: const Text('Light'),
                 value: ThemeMode.light,
+                // ignore: deprecated_member_use
                 groupValue: settings.themeMode,
+                // ignore: deprecated_member_use
                 onChanged: (value) {
                   if (value != null) {
                     settings.setThemeMode(value);
@@ -231,7 +232,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               RadioListTile<ThemeMode>(
                 title: const Text('Dark'),
                 value: ThemeMode.dark,
+                // ignore: deprecated_member_use
                 groupValue: settings.themeMode,
+                // ignore: deprecated_member_use
                 onChanged: (value) {
                   if (value != null) {
                     settings.setThemeMode(value);
@@ -243,7 +246,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               RadioListTile<ThemeMode>(
                 title: const Text('System default'),
                 value: ThemeMode.system,
+                // ignore: deprecated_member_use
                 groupValue: settings.themeMode,
+                // ignore: deprecated_member_use
                 onChanged: (value) {
                   if (value != null) {
                     settings.setThemeMode(value);
@@ -357,6 +362,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   void _shareApp() {
+    // ignore: deprecated_member_use
     Share.share(
       'Check out Status Saver - the best app to save WhatsApp statuses! '
       'Download now: https://play.google.com/store/apps/details?id=com.achendo.wass',
