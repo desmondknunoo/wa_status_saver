@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Status Saver - Save & Share Statuses Easily</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
             color: #333;
             background: #fff;
         }
+
         .hero {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
         }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
         }
+
         .hero p {
             font-size: 1.3rem;
             max-width: 600px;
             margin: 0 auto 30px;
             opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
+
+        .hero .cta-buttons {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subtleFloat {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -42,57 +93,69 @@
             transition: transform 0.2s, box-shadow 0.2s;
             margin: 10px;
         }
+
         .btn-primary {
             background: white;
             color: #128C7E;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
+
         .btn-secondary {
             background: transparent;
             border: 2px solid white;
             color: white;
         }
+
         .btn-secondary:hover {
             background: white;
             color: #128C7E;
         }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 20px;
         }
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             margin-top: 40px;
         }
+
         .feature {
             text-align: center;
             padding: 30px;
             border-radius: 12px;
             background: #f8f9fa;
         }
+
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
+
         .feature h3 {
             margin-bottom: 10px;
             color: #128C7E;
         }
+
         .download-section {
             background: #f5f5f5;
             text-align: center;
             padding: 60px 20px;
         }
+
         .download-section h2 {
             font-size: 2rem;
             margin-bottom: 20px;
         }
+
         .download-buttons {
             display: flex;
             justify-content: center;
@@ -100,6 +163,7 @@
             gap: 15px;
             margin-top: 25px;
         }
+
         .store-btn {
             display: inline-flex;
             align-items: center;
@@ -112,82 +176,122 @@
             font-size: 0.95rem;
             transition: opacity 0.2s;
         }
+
         .store-btn:hover {
             opacity: 0.85;
+            transform: translateY(-2px);
         }
+
+        .store-btn.disabled {
+            background: #555;
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .store-btn.disabled:hover {
+            transform: none;
+        }
+
         .store-btn .icon {
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
         }
+
         .store-btn .text {
             text-align: left;
             line-height: 1.3;
         }
+
         .store-btn .text small {
             font-size: 0.7rem;
             opacity: 0.8;
         }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
         footer {
             background: #333;
             color: white;
             text-align: center;
             padding: 30px 20px;
         }
+
         footer a {
             color: #25D366;
             text-decoration: none;
         }
+
         footer a:hover {
             text-decoration: underline;
         }
+
         .github-link {
             display: inline-block;
             margin-top: 15px;
         }
+
         .github-link a {
             color: #25D366;
             text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <section class="hero">
         <h1>WhatsApp Status Saver</h1>
-        <p>View and save WhatsApp statuses (Images & Videos) from both WhatsApp and WhatsApp Business. Simple, fast, and reliable.</p>
-        <a href="#download" class="btn btn-primary">Download Now</a>
-        <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank" class="btn btn-secondary">View on GitHub</a>
+        <p>View and save WhatsApp statuses (Images & Videos) from both WhatsApp and WhatsApp Business. Simple, fast, and
+            reliable.</p>
+        <div class="cta-buttons">
+            <a href="#download" class="btn btn-primary">Download Now</a>
+            <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank" class="btn btn-secondary">View on
+                GitHub</a>
+        </div>
     </section>
 
     <section class="container">
         <h2 style="text-align: center; margin-bottom: 10px;">Features</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 30px;">Everything you need to save and manage WhatsApp statuses</p>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">Everything you need to save and manage WhatsApp
+            statuses</p>
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">📱</div>
+                <div class="feature-icon"><i data-lucide="smartphone" color="#128C7E"></i></div>
                 <h3>WhatsApp & WhatsApp Business</h3>
                 <p>Seamlessly view and save statuses from both WhatsApp and WhatsApp Business apps.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🖼️</div>
+                <div class="feature-icon"><i data-lucide="image" color="#128C7E"></i></div>
                 <h3>Image & Video Support</h3>
                 <p>High-quality preview and download for both photos and videos with built-in players.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🎨</div>
+                <div class="feature-icon"><i data-lucide="palette" color="#128C7E"></i></div>
                 <h3>Modern UI</h3>
                 <p>Clean Material 3 design with intuitive navigation and smooth animations.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">📁</div>
+                <div class="feature-icon"><i data-lucide="folder" color="#128C7E"></i></div>
                 <h3>Custom Gallery</h3>
                 <p>Dedicated gallery to view all your saved statuses in one place.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔗</div>
+                <div class="feature-icon"><i data-lucide="share-2" color="#128C7E"></i></div>
                 <h3>Easy Sharing</h3>
                 <p>Share statuses directly from the app to any platform with one tap.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔒</div>
+                <div class="feature-icon"><i data-lucide="lock" color="#128C7E"></i></div>
                 <h3>Privacy First</h3>
                 <p>No data collection. All your statuses stay private on your device.</p>
             </div>
@@ -199,17 +303,17 @@
         <p>Get the latest version for Android</p>
         <div class="download-buttons">
             <a href="https://github.com/desmondknunoo/wa_status_saver/releases" target="_blank" class="store-btn">
-                <span class="icon">⬇️</span>
+                <span class="icon"><i data-lucide="github"></i></span>
                 <span class="text">
                     <small>Download from</small><br>
                     GitHub Releases
                 </span>
             </a>
-            <a href="#" class="store-btn" title="Coming Soon">
-                <span class="icon">▶️</span>
+            <a href="#" class="store-btn disabled" title="Coming Soon">
+                <span class="icon"><i data-lucide="play"></i></span>
                 <span class="text">
                     <small>Get it on</small><br>
-                    Play Store
+                    Play Store <span class="coming-soon-badge">Soon</span>
                 </span>
             </a>
         </div>
@@ -221,8 +325,13 @@
         <div class="github-link">
             <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank">View Source Code</a> ·
             <a href="https://github.com/desmondknunoo/wa_status_saver/issues" target="_blank">Report Issue</a> ·
-            <a href="https://github.com/desmondknunoo/wa_status_saver/blob/main/CONTRIBUTING.md" target="_blank">Contribute</a>
+            <a href="https://github.com/desmondknunoo/wa_status_saver/blob/main/CONTRIBUTING.md"
+                target="_blank">Contribute</a>
         </div>
     </footer>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>
