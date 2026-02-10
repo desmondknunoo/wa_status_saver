@@ -21,66 +21,80 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            position: relative;
+            background: #111b21;
             color: white;
-            padding: 80px 20px;
+            padding: 120px 20px 100px;
             text-align: center;
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+            animation: floating 10s infinite ease-in-out;
+        }
+
+        .hero::before {
+            background: #25D366;
+            top: -200px;
+            left: -200px;
+        }
+
+        .hero::after {
+            background: #128C7E;
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -5s;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, 30px);
+            }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff, #a7f3d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: -1px;
             animation: fadeInDown 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             max-width: 600px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero .cta-buttons {
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes subtleFloat {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+            margin: 0 auto 40px;
+            color: #d1d5db;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
         }
 
         .btn {
@@ -320,13 +334,17 @@
 
 <body>
     <section class="hero">
-        <h1>WhatsApp Status Saver</h1>
-        <p>View and save WhatsApp statuses (Images & Videos) from both WhatsApp and WhatsApp Business. Simple, fast, and
-            reliable. <strong>(Android Only)</strong></p>
-        <div class="cta-buttons">
-            <a href="#download" class="btn btn-primary">Download Now</a>
-            <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank" class="btn btn-secondary">View on
-                GitHub</a>
+        <div class="hero-content">
+            <h1>WhatsApp Status Saver</h1>
+            <p>View and save WhatsApp statuses (Images & Videos) from both WhatsApp and WhatsApp Business. Simple, fast,
+                and
+                reliable. <strong>(Android Only)</strong></p>
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">Download Now</a>
+                <a href="https://github.com/desmondknunoo/wa_status_saver" target="_blank"
+                    class="btn btn-secondary">View on
+                    GitHub</a>
+            </div>
         </div>
     </section>
 

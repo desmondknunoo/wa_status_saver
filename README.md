@@ -2,6 +2,8 @@
 
 A professional, production-ready Flutter application to view and save WhatsApp statuses (Images and Videos) from both WhatsApp and WhatsApp Business.
 
+[![Download](https://img.shields.io/badge/Download-APK-25D366?style=for-the-badge&logo=android&logoColor=white)](https://github.com/desmondknunoo/wa_status_saver/releases)
+
 ## 🚀 Features
 
 - **WhatsApp & WhatsApp Business Support**: Seamlessly view statuses from both versions.
